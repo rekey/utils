@@ -1,0 +1,63 @@
+{
+  "name": "rekey_utils",
+  "version": "0.1.1",
+  "description": "Simple time and big number utils for JS/TS.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./number": {
+      "types": "./dist/number.d.ts",
+      "import": "./dist/number.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.19",
+    "bignumber.js": "^9.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rekey/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rekey/utils/issues"
+  },
+  "homepage": "https://github.com/rekey/utils#readme",
+  "author": {
+    "name": "Rekey",
+    "url": "https://github.com/rekey"
+  },
+  "keywords": [
+    "utils",
+    "typescript",
+    "esm",
+    "dayjs",
+    "bignumber"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/rekey"
+  }
+}
