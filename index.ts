@@ -56,6 +56,15 @@ export function getUTCTime() {
  */
 export function log(...messages: any[]) {
     messages.unshift(`[${date()}]`);
+    messages = messages.map((item) => {
+        if (Array.isArray(item)) {
+            return JSON.stringify(item);
+        }
+        if (typeof item === 'object') {
+            return JSON.stringify(item);
+        }
+        return item;
+    });
     console.log(...messages);
 }
 
