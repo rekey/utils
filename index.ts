@@ -1,9 +1,18 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import { createHash } from 'crypto';
 
 export * from './number';
 
 dayjs.extend(utc);
+
+/**
+ * 计算字符串的 SHA-256 哈希值
+ * @param {string} s - 需要计算哈希值的输入字符串
+ */
+export function sha256(s: string) {
+    return createHash('sha256').update(s).digest('hex');
+}
 
 /**
  * 等待指定的毫秒数
@@ -34,11 +43,20 @@ export function getMinuteMS(now = 0) {
 }
 
 /**
+ * 将时间戳或日期对象格式化为字符串
+ * @param {number | Date} [time] - 可选的时间参数，可以是时间戳或Date对象，默认为当前时间
+ * @returns {string} 格式为'YYYY-MM-DD HH:mm:ss'
+ */
+export function date(time?: number | Date) {
+    return dayjs(time).format('YYYY-MM-DD HH:mm:ss');
+}
+
+/**
  * 将时间戳或Date对象格式化为UTC时间的字符串
  * @param time 可选的时间参数，可以是时间戳或Date对象，默认为当前时间
  * @returns 格式化后的UTC时间字符串，格式为'YYYY-MM-DD HH:mm:ss'
  */
-export function date(time?: number | Date) {
+export function dateUTC(time?: number | Date) {
     return dayjs(time).utc().format('YYYY-MM-DD HH:mm:ss');
 }
 

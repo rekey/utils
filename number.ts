@@ -70,3 +70,12 @@ export function toFixed(x: string, n: number) {
     const xx = new BigNumber(x);
     return xx.toFixed(n);
 }
+
+/**
+ * 检查字符串表示的数值是否为零
+ * @param {string} x - 要检查的数值字符串
+ */
+export function isZero(x: string) {
+    const xx = new BigNumber(x);
+    return xx.isZero();
+}

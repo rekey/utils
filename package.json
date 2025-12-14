@@ -1,6 +1,6 @@
 {
   "name": "rekey_utils",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Simple time and big number utils for JS/TS.",
   "type": "module",
   "private": false,
